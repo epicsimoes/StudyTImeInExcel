@@ -35,6 +35,8 @@ def main():
         write_to_excel()
 
 
+
+
 def write_to_excel():
     global time_counter, wb, ws, loadLastEntry
     # check if the B or the C column is empty
@@ -52,7 +54,7 @@ def count_cells(x):
     global ws
     count = 0
     for cell in ws[x]:
-        if cell.value is not None:
+        if cell.value is not None:  
             count += 1
     return count
 

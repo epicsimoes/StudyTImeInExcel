@@ -6,7 +6,8 @@ time_counter = 0.0
 stopProgram = False
 wb = load_workbook("test.xlsx")
 ws = wb.active
-localtime = time.strftime("%d/%m/%Y")
+localTime = time.strftime("%d/%m/%Y")
+loadLastEntry = ""
 
 
 def check_for_end(key):
@@ -23,6 +24,8 @@ def check_for_end(key):
 def main():
     global time_counter, stopProgram, wb
 
+    load()
+
     listener = keyboard.Listener(on_press=check_for_end, on_release=None)
     listener.start()
 
@@ -33,25 +36,38 @@ def main():
 
 
 def write_to_excel():
-    global time_counter, wb, ws
-    # check if the Excel file is empty
-    if count_cells() == 0:
+    global time_counter, wb, ws, loadLastEntry
+    # check if the B or the C column is empty
+    if count_cells("B") == 0 or count_cells("C") == 0:  # if the B or C column is empty then it will add the headers
         ws["B2"] = "Date"
-        ws[f'B{count_cells() + 2}'] = localtime
+        ws[f'B{count_cells("B") + 2}'] = localTime
         ws["C2"] = "Time(s)"
-        ws[f"C{count_cells() + 1}"] = time_counter
+        ws["C", (count_cells("C")) + 2] = time_counter
     # if the date is the same as the last entry then it will add the time to the last entry
-    if ws[f"B{count_cells() + 1}"].value == localtime:
-        ws[f"C{count_cells() + 1}"] = int(ws[f"C{count_cells() + 1}"].value) + + 1
+    if check_for_last_entry():
+        ws[f'C{count_cells("B") + 1}'] = str(int(loadLastEntry) + time_counter)
 
 
-def count_cells():
+def count_cells(x):
     global ws
     count = 0
-    for cell in ws['B']:
+    for cell in ws[x]:
         if cell.value is not None:
             count += 1
     return count
+
+
+def check_for_last_entry():
+    # checks if the column has an entry for the current date in the B column
+    global ws
+    if ws[f'B{count_cells("B") + 1}'].value == localTime:
+        return True
+    return False
+
+
+def load():
+    global wb, ws, loadLastEntry
+    loadLastEntry = str(ws[f'C{count_cells("C")+ 1}'].value)
 
 
 if __name__ == '__main__':

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUDY TIME IN EXEL</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <h2>GET INTO YOUR STATISTICS</h2>
+        <form id="meuFormulario" action="pagina-de-destino.html" method="post" name="submit-to-google-sheet">
+            <input type="text" placeholder="you name" required>
+            <input type="password" placeholder="password" required>
+            <textarea placeholder="send your message" rows="4" required></textarea>
+            <button type="submit">SUBMIT</button>
+        </form>
+    </section>
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbxWdeMfAduVpq_V3k4Iim4-TfmBwXOnetNDIVCwu7e5DYcP3l8QmjzcBC_bG2lf3EE/exec'
+      const form = document.forms['submit-to-google-sheet']
+    
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => console.log('Success!', response))
+          .catch(error => console.error('Error!', error.message))
+      })
+    </script>
+</body>
+</html>

@@ -45,7 +45,8 @@ def write_to_excel():
         ws["C", (count_cells("C")) + 2] = time_counter
     # if the date is the same as the last entry then it will add the time to the last entry
     if check_for_last_entry():
-        ws[f'C{count_cells("B") + 1}'] = str(int(loadLastEntry) + time_counter)
+        refactor_cells()
+        ws[f'C{count_cells("B") + 1}'] = float(loadLastEntry) + time_counter
     else:
         ws[f'B{count_cells("B") + 2}'] = localTime
         ws[f'C{count_cells("C") + 2}'] = time_counter
@@ -71,6 +72,13 @@ def check_for_last_entry():
 def load():
     global wb, ws, loadLastEntry
     loadLastEntry = str(ws[f'C{count_cells("C")+ 1}'].value)
+
+
+def refactor_cells():
+    # refactor the cells so that the cells don´t end in .0
+    for cell in ws["C"]:
+        if cell.value is not None or cell.value == "Time(s)":
+            cell.value = str(cell.value).replace(".0", "")
 
 
 if __name__ == '__main__':

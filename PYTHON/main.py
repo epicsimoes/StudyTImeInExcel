@@ -35,8 +35,6 @@ def main():
         write_to_excel()
 
 
-
-
 def write_to_excel():
     global time_counter, wb, ws, loadLastEntry
     # check if the B or the C column is empty
@@ -48,13 +46,16 @@ def write_to_excel():
     # if the date is the same as the last entry then it will add the time to the last entry
     if check_for_last_entry():
         ws[f'C{count_cells("B") + 1}'] = str(int(loadLastEntry) + time_counter)
+    else:
+        ws[f'B{count_cells("B") + 2}'] = localTime
+        ws[f'C{count_cells("C") + 2}'] = time_counter
 
 
 def count_cells(x):
     global ws
     count = 0
     for cell in ws[x]:
-        if cell.value is not None:  
+        if cell.value is not None:
             count += 1
     return count
 

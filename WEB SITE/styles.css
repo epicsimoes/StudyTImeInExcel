@@ -1,7 +1,6 @@
-/* styles.css */
 body {
-  background-color: #ffffff; /* Cor de fundo principal (branco) */
-  color: #333; /* Cor do texto (cinza escuro) */
+  background-color: #fff;
+  color: #000;
 }
 
 .container {
@@ -13,27 +12,46 @@ body {
 }
 
 .card {
-  background-color: #f8f9fa; /* Cor de fundo do cartão (cinza claro) */
+  background-color: #fff;
+  padding: 30px; /* Aumentei o padding para maior espaçamento interno */
+  border-radius: 35px; /* Aumentei o raio da borda para arredondar mais */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Aumentei a intensidade da sombra */
+  max-width: 500px; /* Aumentei a largura máxima do cartão */
 }
 
 h1 {
-  color: #333; /* Cor do título (cinza escuro) */
+  color: #a6a6a6;
 }
 
 form {
   display: flex;
   flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .form-control {
-  margin-bottom: 10px;
+  margin-bottom: 20px; /* Aumentei a margem inferior para mais espaçamento entre os campos */
+}
+
+.input-field {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 15px; /* Aumentei o tamanho da fonte para melhor legibilidade */
 }
 
 button {
-  background-color: #007bff; /* Cor de fundo do botão (azul) */
+  background-color: #a6a6a6;
+  color: #fff;
+  padding: 12px 20px; /* Aumentei o padding para tornar o botão mais substancial */
   border: none;
+  border-radius: 35px;
+  cursor: pointer;
 }
 
 button:hover {
-  background-color: #0056b3; /* Cor de fundo do botão ao passar o mouse */
+  background-color: #fff;
+  color: #a6a6a6;
+  transition: 2.5s;
 }

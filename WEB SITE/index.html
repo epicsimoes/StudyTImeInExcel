@@ -1,46 +1,37 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HTML form submit to Google Sheet</title>
+  <title>STUDY TIME IN EXEL</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
 
 <body>
   <div class="container text-center">
     <br>
-    <h1>HTML form submit to Google Sheet</h1>
+    <h1>STUDY TIME IN EXEL</h1>
     <br>
     <div class="card mx-auto" style="width: 18rem;">
       <div class="card-body">
-        <form name="submit-to-google-sheet">
+        <form id="submit-to-google-sheet">
           <div class="mb-3">
-            <input name="fullname" type="text" class="form-control" placeholder="Fullname" required>
+            <input name="name" type="text" class="form-control" placeholder="your name" required>
           </div>
 
           <div class="mb-3">
-            <input name="email" type="email" class="form-control" placeholder="Email" required>
+            <input name="password" type="password" class="form-control" placeholder="your password" required>
           </div>
 
-          <button type="submit" class="btn btn-primary">Send</button>
+          <div class="mb-3">
+            <textarea name="message" class="form-control" placeholder="your message" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">send</button>
         </form>
       </div>
     </div>
-
   </div>
-  <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxHdxYtnFHRHdAbjLiUQ0d_IBgC0GWgEVxa5he79_kWmk_g6k1LSSjzJga26p2DUqfLRg/exec'
-    const form = document.forms['submit-to-google-sheet']
-
-    form.addEventListener('submit', e => {
-      e.preventDefault()
-      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-        .then(response => console.log('Success!', response))
-        .catch(error => console.error('Error!', error.message))
-    })
-  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

@@ -8,3 +8,16 @@ form.addEventListener('submit', e => {
     .then(response => console.log('Success!', response))
     .catch(error => console.error('Error!', error.message));
 });
+
+function validateForm() {
+  var name = document.getElementById('name').value;
+  var password = document.getElementById('password').value;
+
+  if (name.trim() === '' || password.trim() === '') {
+    alert('please fill in all required fields (name and password).');
+    return false;
+  } else {
+    window.location.href = 'exel.html';
+    return false;
+  }
+}

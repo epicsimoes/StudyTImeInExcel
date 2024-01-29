@@ -16,24 +16,23 @@
     <br>
     <div class="card mx-auto" style="width: 18rem;">
       <div class="card-body">
-        <form id="submit-to-google-sheet">
-          <div class="mb-3">
-            <input name="name" type="text" class="form-control" placeholder="your name" required>
-          </div>
+          <form id="registrationForm" onsubmit="return validateForm()">
+            <label for="name">NAME</label>
+            <input type="text" id="name" name="name" required>
 
-          <div class="mb-3">
-            <input name="password" type="password" class="form-control" placeholder="your password" required>
-          </div>
+          <label for="password">PASSWORD</label>
+          <input type="password" id="password" name="password" required>
 
-          <div class="mb-3">
-            <textarea name="message" class="form-control" placeholder="your message" required></textarea>
-          </div>
+          <label for="message">MESSAGE</label>
+          <textarea id="message" name="message"></textarea>
 
-          <button type="submit" class="btn btn-primary">ENTER</button>
+          <input type="submit" value="ENTRAR">
+          
         </form>
       </div>
     </div>
   </div>
+  <form id="submit-to-google-sheet"></form>
 
   <script src="script.js"></script>
 </body>

@@ -1,6 +1,6 @@
 body {
-  background-color: #fff;
-  color: #000;
+  background-color: #f8f8f8;
+  font-family: 'Arial', sans-serif;
 }
 
 .container {
@@ -13,45 +13,52 @@ body {
 
 .card {
   background-color: #fff;
-  padding: 30px; /* Aumentei o padding para maior espaçamento interno */
-  border-radius: 35px; /* Aumentei o raio da borda para arredondar mais */
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Aumentei a intensidade da sombra */
-  max-width: 500px; /* Aumentei a largura máxima do cartão */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
 }
 
 h1 {
-  color: #a6a6a6;
+  color: #454545;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  max-width: 400px;
-  margin: 0 auto;
 }
 
-.form-control {
-  margin-bottom: 20px; /* Aumentei a margem inferior para mais espaçamento entre os campos */
+label {
+  margin-top: 10px;
+  color: #555;
 }
 
-.input-field {
+input,
+textarea {
+  margin-bottom: 15px;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 15px; /* Aumentei o tamanho da fonte para melhor legibilidade */
+  border-radius: 15px;
+  font-size: 15px;
 }
 
-button {
-  background-color: #a6a6a6;
+input[type="submit"] {
+  background-color: #454545;
   color: #fff;
-  padding: 12px 20px; /* Aumentei o padding para tornar o botão mais substancial */
+  padding: 12px 20px;
   border: none;
-  border-radius: 35px;
+  border-radius: 15px;
   cursor: pointer;
+  font-size: 15px;
 }
 
-button:hover {
-  background-color: #fff;
-  color: #a6a6a6;
-  transition: 2.5s;
+input[type="submit"]:hover {
+  transition: background-color 1.5s;
+}
+
+/* Adicionando estilo para mensagens de erro (pode ser útil para validação) */
+.error-message {
+  color: #ff0000;
+  margin-top: 5px;
 }

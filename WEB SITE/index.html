@@ -1,40 +1,35 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>STUDY TIME IN EXEL</title>
+  <title>Study Time in Excel</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
   <div class="container text-center">
     <br>
-    <h1>STUDY TIME IN EXEL</h1>
+    <h1>Study Time in Excel</h1>
     <br>
     <div class="card mx-auto" style="width: 18rem;">
       <div class="card-body">
-          <form id="registrationForm" onsubmit="return validateForm()">
-            <label for="name">NAME</label>
-            <input type="text" id="name" name="name" required>
-
-          <label for="password">PASSWORD</label>
+        <form id="registrationForm" onsubmit="return validateForm()">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+          
+          <label for="password">Password</label>
           <input type="password" id="password" name="password" required>
 
-          <label for="message">MESSAGE</label>
+          <label for="message">Message</label>
           <textarea id="message" name="message"></textarea>
 
-          <input type="submit" value="ENTRAR">
-          
+          <input type="submit" value="Entrar">
         </form>
+        <form id="submit-to-google-sheet"></form>
       </div>
     </div>
   </div>
-  <form id="submit-to-google-sheet"></form>
 
   <script src="script.js"></script>
 </body>
-
 </html>
